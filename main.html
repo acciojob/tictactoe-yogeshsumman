@@ -65,19 +65,19 @@
 <body>
     <div class="container">
         <div class="input-section" id="input-section">
-            <h1>TIC TAC TOE</h1>
+            <h1>Tic Tac Toe</h1>
             <div>
                 <label>Player 1</label><br>
-                <input type="text" id="player-1" placeholder="enter name">
+                <input type="text" id="player1" placeholder="enter name">
             </div>
             <div>
                 <label>Player 2</label><br>
-                <input type="text" id="player-2" placeholder="enter name">
+                <input type="text" id="player2" placeholder="enter name">
             </div>
             <button id="submit">Start Game</button>
         </div>
         <div class="game-section" id="game-section">
-            <h1>TIC TAC TOE</h1>
+            <h1>Tic Tac Toe</h1>
             <div class="message" id="message"></div>
             <div class="board" id="board">
                 <div class="cell" id="1"></div>
@@ -106,8 +106,8 @@
         ];
 
         document.getElementById('submit').addEventListener('click', () => {
-            player1Name = document.getElementById('player-1').value.trim();
-            player2Name = document.getElementById('player-2').value.trim();
+            player1Name = document.getElementById('player1').value.trim();
+            player2Name = document.getElementById('player2').value.trim();
 
             if (player1Name && player2Name) {
                 document.getElementById('input-section').style.display = 'none';
@@ -123,12 +123,12 @@
                 const cellId = parseInt(cell.id) - 1;
 
                 if (gameBoard[cellId] === '' && gameActive) {
-                    gameBoard[cellId] = currentPlayer === 1 ? 'X' : 'O';
+                    gameBoard[cellId] = currentPlayer === 1 ? 'x' : 'o'; // Use lowercase to match test
                     cell.textContent = gameBoard[cellId];
 
                     if (checkWin()) {
                         const winner = currentPlayer === 1 ? player1Name : player2Name;
-                        document.getElementById('message').textContent = `${winner}, congratulations you won!`;
+                        document.getElementById('message').textContent = `${winner} congratulations you won!`; // Remove comma
                         gameActive = false;
 
                         // Highlight winning cells
